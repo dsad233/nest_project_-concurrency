@@ -4,7 +4,7 @@ import { IsEnum } from 'class-validator';
 import { ShowTag } from '../types/showtag.type';
 import { ShowStatus } from '../types/showstatus.type';
 
-export class UpdateShowDto extends PickType(CreateShowDto, ['showtitle', 'showalltime', 'showlocation', 'showstartime']) {
+export class UpdateShowDto extends PickType(CreateShowDto, ['showtitle', 'showtext','showalltime', 'showlocation', 'showstartime']) {
     @IsEnum(ShowTag)
     showTag : ShowTag;
 

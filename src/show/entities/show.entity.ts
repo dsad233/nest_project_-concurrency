@@ -15,6 +15,9 @@ export class Show {
     @Column({ type : 'varchar' ,nullable : false })
     showtitle : string;
 
+    @Column({ type : 'text' ,nullable : false })
+    showtext : string;
+
     @Column({ type : 'enum' , enum : ShowTag, default : ShowTag.Action })
     showTag : ShowTag;
 

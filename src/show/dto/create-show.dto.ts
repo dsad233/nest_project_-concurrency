@@ -8,6 +8,10 @@ export class CreateShowDto {
     showtitle : string
 
     @IsString()
+    @IsNotEmpty({ message : "공연 제목을 작성해주세요."})
+    showtext : string
+
+    @IsString()
     @IsNotEmpty({ message : "공연 총 진행시간을 작성해주세요." })
     showalltime : string
 

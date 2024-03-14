@@ -22,6 +22,7 @@ export class ShowService {
     return await this.showRepository.save({
       userId,
       showtitle : createShowDto.showtitle,
+      showtext : createShowDto.showtext,
       showalltime : createShowDto.showalltime,
       showlocation : createShowDto.showlocation,
       showstartime : createShowDto.showstartime,

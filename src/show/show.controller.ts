@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Req } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Req, Res } from '@nestjs/common';
 import { ShowService } from './show.service';
 import { CreateShowDto } from './dto/create-show.dto';
 import { UpdateShowDto } from './dto/update-show.dto';
@@ -39,9 +39,10 @@ export class ShowController {
   @Roles(Role.Admin)
   @Patch(':id')
   async update(@Param('id') showId: number, userId : number, @Body() updateShowDto: UpdateShowDto, @Req() req) {
+    const paramId = await this.showService.findId(userId);
     const user = req.user.userId;
 
-    if(userId !== user){
+    if(paramId.userId !== user){
       throw new Error("접근이 허가되지 않습니다.");
     }
 
@@ -52,9 +53,10 @@ export class ShowController {
   @Roles(Role.Admin)
   @Delete(':id')
   async remove(@Param('id') showId: number, userId : number, @Req() req) {
+    const paramId = await this.showService.findId(userId);
     const user = req.user.userId
 
-    if(userId !== user){
+    if(paramId.userId !== user){
       throw new Error("접근이 허가되지 않습니다.");
     }
 

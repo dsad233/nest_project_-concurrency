@@ -10,6 +10,7 @@ import { Show } from './show/entities/show.entity';
 import { User } from './user/entities/user.entity';
 import { AuthModule } from './auth/auth.module';
 import { SeatModule } from './seat/seat.module';
+import { Seat } from './seat/entities/seat.entity';
 
 const typeOrmModuleOptions = {
   useFactory: async (
@@ -21,7 +22,7 @@ const typeOrmModuleOptions = {
     username: configService.get('DB_USERNAME'),
     password: configService.get('DB_PASSWORD'),
     database: configService.get('DB_NAME'),
-    entities: [User,Show],
+    entities: [User,Show, Seat],
     synchronize: configService.get('DB_SYNC'),
     logging: true,
   }),

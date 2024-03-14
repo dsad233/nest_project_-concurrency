@@ -1,3 +1,4 @@
+import { Seat } from "src/seat/entities/seat.entity"
 import { Show } from "src/show/entities/show.entity"
 import { Role } from "src/user/types/userRole.type"
 import { Column, CreateDateColumn, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm"
@@ -36,5 +37,11 @@ export class User {
 
     @OneToMany(() => Show, show => show.user)
     show : Show[]
+
+    @OneToMany(() => Seat, seat => seat.user)
+    seat : Seat[]
+
+    @Column()
+    seatId : number;
 
 }
