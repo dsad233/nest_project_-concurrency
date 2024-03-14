@@ -2,7 +2,6 @@ import { User } from "src/user/entities/user.entity";
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { ShowTag } from "../types/showtag.type";
 import { ShowStatus } from "../types/showstatus.type";
-import { Type } from "class-transformer";
 
 
 
@@ -10,7 +9,7 @@ import { Type } from "class-transformer";
     name : 'shows'
 })
 export class Show {
-    @PrimaryGeneratedColumn({type : 'int', name : 'showId'})
+    @PrimaryGeneratedColumn({ type : 'int', name : 'showId'})
     showId : number;
 
     @Column({ type : 'varchar' ,nullable : false })
