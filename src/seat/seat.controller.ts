@@ -3,32 +3,32 @@ import { SeatService } from './seat.service';
 import { CreateSeatDto } from './dto/create-seat.dto';
 import { UpdateSeatDto } from './dto/update-seat.dto';
 
-@Controller('seat')
+@Controller('seats')
 export class SeatController {
   constructor(private readonly seatService: SeatService) {}
 
   @Post()
-  create(@Body() createSeatDto: CreateSeatDto) {
-    return this.seatService.create(createSeatDto);
+  async create(@Body() createSeatDto: CreateSeatDto) {
+    return await this.seatService.create(createSeatDto);
   }
 
   @Get()
-  findAll() {
+  async findAll() {
     return this.seatService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.seatService.findOne(+id);
+  async findOne(@Param('id') seatId: number) {
+    return this.seatService.findOne(seatId);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateSeatDto: UpdateSeatDto) {
-    return this.seatService.update(+id, updateSeatDto);
+  update(@Param('id') seatId: number, @Body() updateSeatDto: UpdateSeatDto) {
+    return this.seatService.update(seatId, updateSeatDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.seatService.remove(+id);
+  remove(@Param('id') seatId: number) {
+    return this.seatService.remove(seatId);
   }
 }

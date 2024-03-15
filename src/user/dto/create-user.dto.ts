@@ -4,14 +4,14 @@ export class CreateUserDto {
 
     @IsString()
     @IsNotEmpty({ message : "이름을 작성해주세요."})
-    name : string
+    name : string;
 
     @IsString()
     @IsNotEmpty({ message : "이메일을 작성해주세요."})
-    email : string
+    email : string;
 
     @IsString()
     @IsNotEmpty({ message : "패스워드를 작성해주세요."})
-    password : string
+    password : string;
 
 }

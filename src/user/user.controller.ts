@@ -55,7 +55,7 @@ export class UserController {
   async login(@Body() loginDto : LoginDto, @Res() res) {
     const user =  await this.userService.login(loginDto.email, loginDto.password);
     res.cookie("authorization", `Bearer ${user.access_token}`);
-    res.send('로그인');
+    res.send("로그인 완료");
   }
 
 }

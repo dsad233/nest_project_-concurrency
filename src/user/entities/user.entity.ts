@@ -10,38 +10,40 @@ import { Entity } from "typeorm/decorator/entity/Entity"
 })
 
 export class User {
-    @PrimaryGeneratedColumn({type : 'int', name : 'userId'})
-    userId : number
+    @PrimaryGeneratedColumn({ type : 'int', name : 'userId' })
+    userId : number;
 
     @Column({ type : 'varchar' ,nullable : false })
-    name : string
+    name : string;
     
     @Column({ type : 'varchar' ,nullable : false })
-    email : string
+    email : string;
 
     @Column({ type : 'varchar' ,nullable : false })
-    password : string
+    password : string;
 
-    @Column({ type : 'int', nullable : false, default : 10000 })
-    point : number
+    @Column({ type : 'bigint', nullable : false, default : 100000 })
+    point : bigint;
 
     @Column({ type : 'enum' , enum : Role, default : Role.User })
     role : Role;
 
     @CreateDateColumn()
-    createdAt : Date
+    createdAt : Date;
 
     @UpdateDateColumn()
-    updatedAt : Date
-
+    updatedAt : Date;
 
     @OneToMany(() => Show, show => show.user)
-    show : Show[]
+    show : Show[];
 
     @OneToMany(() => Seat, seat => seat.user)
-    seat : Seat[]
+    seat : Seat[];
 
-    @Column()
+    @Column({ type : 'int' })
     seatId : number;
+
+    @Column({ type : 'int', nullable : false})
+    seatbase : number;
 
 }

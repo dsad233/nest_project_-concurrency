@@ -1,6 +1,7 @@
 
+import { Show } from "src/show/entities/show.entity";
 import { User } from "src/user/entities/user.entity";
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({
     name : 'seats'
@@ -10,16 +11,19 @@ export class Seat {
     seatId : number;
 
     @ManyToOne(() => User, user => user.seat)
-    @JoinColumn({ name : 'userId'})
+    @JoinColumn({ name : 'userId', referencedColumnName : 'userId'})
     user : User; 
 
-    @Column({ type : 'int', nullable : false})
+    @Column({ type : 'int', nullable : false })
     userId : number;
 
-    @Column({ type : 'varchar'})
-    seatbase : number;
+    @OneToMany(() => Show, show => show.seat)
+    show : Show;
 
-    @Column({ type : 'varchar'})
-    seatprice : number;
-;
+    @Column({ type : 'int', nullable : false })
+    showId : number;
+
+    @Column({ type : 'int', nullable : false })
+    seatbase : number;
+ 
 }
