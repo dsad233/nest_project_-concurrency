@@ -51,12 +51,11 @@ export class Show {
     userId : number;
 
     @ManyToOne(() => Seat, seat => seat.show)
-    @JoinColumn({ name: 'seatbase', referencedColumnName : 'seatbase' })
+    @JoinColumn({ name: 'seatId', referencedColumnName : 'seatId' })
     seat : Seat;
 
-
     @Column({ type : 'int', nullable : false })
-    seatbase : number;
+    seatId : number;
 
     
     // @Column({ type : 'int', nullable : false })

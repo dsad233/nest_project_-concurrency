@@ -3,10 +3,13 @@ import { CreateSeatDto } from './dto/create-seat.dto';
 import { UpdateSeatDto } from './dto/update-seat.dto';
 import { Repository } from 'typeorm';
 import { Seat } from './entities/seat.entity';
+import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class SeatService {
-  constructor(private seatRepository : Repository<Seat>){}
+  constructor(
+    @InjectRepository(Seat)
+    private seatRepository : Repository<Seat>){}
 
   async create(createSeatDto: CreateSeatDto) {
     const { seatbase } = createSeatDto;

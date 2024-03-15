@@ -18,7 +18,7 @@ export class Seat {
     userId : number;
 
     @OneToMany(() => Show, show => show.seat)
-    show : Show;
+    show : Show
 
     @Column({ type : 'int', nullable : false })
     showId : number;
