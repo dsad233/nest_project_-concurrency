@@ -2,7 +2,8 @@ import { User } from "src/user/entities/user.entity";
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { ShowTag } from "../types/showtag.type";
 import { ShowStatus } from "../types/showstatus.type";
-import { Seat } from "src/seat/entities/seat.entity";
+import { Seat } from "./seat.entity";
+
 
 
 
@@ -51,15 +52,14 @@ export class Show {
     userId : number;
 
     @ManyToOne(() => Seat, seat => seat.show)
-    @JoinColumn({ name: 'seatId', referencedColumnName : 'seatId' })
+    // @JoinColumn({ name: 'seatId', referencedColumnName : 'seatId' })
     seat : Seat;
 
-    @Column({ type : 'int', nullable : false })
+    @Column()
     seatId : number;
 
-    
-    // @Column({ type : 'int', nullable : false })
-    // seatbase : number;
+    @Column()
+    seatbase : number;
 
     
 }

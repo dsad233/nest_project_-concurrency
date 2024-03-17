@@ -5,6 +5,7 @@ import { UpdateShowDto } from './dto/update-show.dto';
 import { Roles } from 'src/auth/roles.decorator';
 import { Role } from 'src/user/types/userRole.type';
 import { RolesGuard } from 'src/auth/roles.guard';
+import { CreateSeatDto } from './dto/create-seat.dto';
 
 
 @UseGuards(RolesGuard)
@@ -15,7 +16,7 @@ export class ShowController {
 
   @Roles(Role.Admin)
   @Post()
-  async create(@Req() req, @Body() createShowDto: CreateShowDto) {
+  async create(@Req() req, @Body() createShowDto : CreateShowDto) {
     const userId = req.user.userId;
     return await this.showService.create(userId, createShowDto);
   }

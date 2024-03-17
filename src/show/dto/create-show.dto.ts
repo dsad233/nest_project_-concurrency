@@ -4,11 +4,11 @@ import { IsNotEmpty, IsNumber, IsString } from "class-validator";
 export class CreateShowDto {
 
     @IsString()
-    @IsNotEmpty({ message : "공연 제목을 작성해주세요."})
+    @IsNotEmpty({ message : "공연 제목을 작성해주세요." })
     showtitle : string;
 
     @IsString()
-    @IsNotEmpty({ message : "공연 제목을 작성해주세요."})
+    @IsNotEmpty({ message : "공연 제목을 작성해주세요." })
     showtext : string;
 
     @IsString()
@@ -26,5 +26,8 @@ export class CreateShowDto {
     @IsNumber()
     @IsNotEmpty({ message : "공연 가격을 작성해주세요." })
     showprice : number;
+
+    @IsNumber()
+    seatbase : number
 
 }

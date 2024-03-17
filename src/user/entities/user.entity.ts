@@ -1,4 +1,4 @@
-import { Seat } from "src/seat/entities/seat.entity"
+import { Seat } from "src/show/entities/seat.entity";
 import { Show } from "src/show/entities/show.entity"
 import { Role } from "src/user/types/userRole.type"
 import { Column, CreateDateColumn, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm"
@@ -43,7 +43,7 @@ export class User {
     @Column({ type : 'int' })
     seatId : number;
 
-    @Column({ type : 'int', nullable : false})
+    @Column({ type : 'int', nullable : false })
     seatbase : number;
 
 }
